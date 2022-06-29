@@ -1,0 +1,23 @@
+É necessário fazer a instalação da biblioteca "python-dotenv"
+para tratar as variáveis de ambiente
+
+> pip install python-dotenv (disponível em: https://pypi.org/)
+
+Será necessário criar o arquivo '.env' na pasta do projeto
+e passar para dentro dela as variaveis 'SECRET_KEY' e 'DEBUG'
+
+
+================================
+== dentro da pasta 'settings' ==
+================================
+
+from dotenv import load_dotenv
+import os
+
+SECRET_KEY = os.getenv('SECREAT_KEY') # passar o valor da variável de ambiente
+DEBUG = os.getenv('DEBUG', False) # associa a variável de ambiente e define ele com o valor padrão 'False'
+
+
+OBS: Fazer uma cópia do '.env' e deixar a apenas a variáveis sem os valores
+     para servir como template para quem for desenvolver o projeto saber quais
+     variáveis de ambiente precisam ser utilizadas
