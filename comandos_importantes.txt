@@ -1,0 +1,43 @@
+> pip install [...][venv, django ...]
+
+Para criar um ambiente virtaul
+> virtualenv [nome_da_venv] -> ex: 'venv'
+
+OBS: O ambiente virtual pode ser criado dentro
+     da pasta do projeto.
+
+Para executar o ambiente virtual:
+> source/bin/activate (no linux)
+
+OBS: depois que executar o ambiente virtual 
+     será necessário instalar o django
+
+> pip install django
+
+Para vizualizar o que tem instalado:
+> pip freeze
+
+========================
+== CRIAÇÃO DO PROJETO ==
+========================
+1. Dentro da pasta onde o ambiente virtaul
+   foi instalado, fazer:
+
+   > django-admin startproject [nome] [diretorio]
+   [nome] -> pasta project
+   [diretorio] se ficar em branco o django vai
+   criar a pasta project com as estruturas do
+   projeto nele. Para criar na pasta atual, é
+   necessário passar o '.' (ponto)
+
+   Exemplo: 
+   > django-admin startproject project .
+========================
+
+É NECESSÁRIO CRIAR O 'requirements.txt':
+Para transcrever todas as dependencias do projeto
+em um arquivo txt:
+> "pip freeze > requirements.txt" (linux e windows)
+
+Para instalar as dependencias conforme o arquivo
+> pip install -r requirements.txt
