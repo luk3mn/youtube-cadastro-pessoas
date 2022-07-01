@@ -11,8 +11,9 @@
         <!-- 'home' é o nome que informado na url de index -->
         <li><a href="{% url 'home' %}">Home</a></li>
         <!-- 'pessoa.index' é o nome que informado na url de pessoa -->
-        <li><a href="{% url 'pessoa.index' %}">Pessoas</a></li>
-        
+        <li><a href="{% url 'pessoa.index' %}">Pessoas</a></li> 
     </ul>
+    {% block content %}
+    {% endblock content %}
 </body>
 </html>
