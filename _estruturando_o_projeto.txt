@@ -1,0 +1,49 @@
+==========================
+== COMENÇANDO O PROJETO ==
+==========================
+
+1. Criação da pasta do projeto
+   > mkdir [nome_da_pasta]
+2. Criação e execução do ambiente virtual
+   > virtualenv [nome_da_venv] -> 'venv'
+   > source venv/Scripts/activate (linux, bash)
+3. Instalação do django
+   > pip install django
+4. Criação do projeto 'django'
+   > django-admin startprojetc project . (padrão de projeto)
+
+==========================
+== PREPARANDO O PROJETO ==
+==========================
+
+1. Instalação da biblioteca "python-dotenv" para tratar as variáveis de ambiente:
+   > pip install python-dotenv (disponível em: https://pypi.org/)
+2. Criação do arvquivo '.env' na pasta do projeto 'project'
+3. Passar para o arquivo as variáveis de ambiente 'SECRET_KEY' e 'DEBUG'
+   - SECRET_KEY='código disponível em settings'
+   - DEBUG=True
+4. Configuração inicial do settings
+   - Importação das bibliotecas:
+     from dotenv import load_dotenv
+     import os
+
+   - Chame a função 'load_dotenv()' depois das importações
+
+   - Ajuste das variáveis de ambiente:
+     SECRET_KEY = os.getenv('SECREAT_KEY') # passar o valor da variável de ambiente
+     DEBUG = os.getenv('DEBUG', False) # associa a variável de ambiente e define ele com o valor padrão 'False' caso não encontre o arquivo '.env'
+
+   - Faça uma cópia do arquivo '.env' com o nome '.env.exemplo' e retirar os valores das variáveis, deixando-os vazio
+5. Criação do arquivo 'requirements.txt'
+   > pip freeze > requirements.txt
+6. Criação do '.gitignore' (instalar a extensão 'Gitignore Templates' no vscode)
+
+============================
+== CODIFICAÇÃO DO PROJETO ==
+============================
+1. Criação dos apps
+  > django-admin startapp [nome_do_app] (app padrão 'main' e dos apps necessários para o projeto)
+- Views
+- Models
+- Urls
+[...]
