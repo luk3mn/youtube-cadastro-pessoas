@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+<!-- Para criar um bloco escluviso do arquivo 'pessoa_list.html' -->
+{% block content %}
+
+<!-- 'pk_pessoa' é retornado pelo método 'contatos' da view juntamente com 'contatos' a partir do "{'contatos':contatos, 'pk_pessoa':pk_pessoa}" especificado no render -->
+<a href="{% url 'contato.novo' pk_pessoa %}">Novo</a>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- 'contatos' é retornado pelo método 'contatos' da view juntamente com 'pk_pessoa' a partir do "{'contatos':contatos, 'pk_pessoa':pk_pessoa}" especificado no render -->
+        {% for contato in contatos %}
+        <tr>
+            <td>{{ contato.nome }}</td>
+            <td>{{ contato.email }}</td>
+            <td>{{ contato.telefone }}</td>
+            <td>
+                <a href="{% url 'contato.editar' pk_pessoa contato.pk %}">Editar</a>
+                <a href="{% url 'contato.remover' pk_pessoa contato.pk %}">Remover</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
