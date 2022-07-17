@@ -31,7 +31,8 @@ SECRET_KEY = os.getenv('SECRET_KEY') # passar o valor da variável de ambiente
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False) # associa a variável de ambiente e define ele com o valor padrão 'False'
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['cadastro-pessoas-django-teste.herokuapp.com'] # mais indicado
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
