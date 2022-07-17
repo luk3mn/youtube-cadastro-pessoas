@@ -14,6 +14,7 @@ class ListaPessoaView(ListView):
     # mecanismo de busca
     def get_queryset(self):
         queryset = super().get_queryset()
+        queryset = queryset.filter(usuario=self.request.user) # retorna somente os registros associados ao usuario
         filtro_nome = self.request.GET.get('nome') or None
 
         if filtro_nome: # verifica se contem o registro passado no filtro
@@ -26,6 +27,10 @@ class PessoaCreateView(CreateView):
     model = Pessoa # Indica qual é o model de referencia
     form_class = PessoaForm
     success_url = '/pessoas/' # redireciona para outra página (pessoas) quando o cadastro tiver sido realizado
+
+    def form_valid(self, form):
+        form.instance.usuario = self.request.user
+        return super().form_valid(form)
 
 class PessoaUpdateView(UpdateView): # só muda a classe de herança, o princípio é o mesmo
     model = Pessoa

@@ -129,3 +129,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Informa ao django auth que quando fizer logout e redirecione para o index
+LOGOUT_REDIRECT_URL = '/'
