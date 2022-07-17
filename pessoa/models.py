@@ -1,10 +1,9 @@
-from tkinter import CASCADE
 from django.db import models
 from django.contrib.auth.models import User
 
 # Criação dos models de Pessoa
 class Pessoa(models.Model):
-    nome_completo = models.CharField(max_length=250)
+    nome_completo = models.CharField(max_length=256)
     data_nascimento = models.DateField(null=True)
     ativa = models.BooleanField(default=True)
     # indica que só serão listadas as pessoas cujo o usuario está vinculado a elas
@@ -19,8 +18,8 @@ class Pessoa(models.Model):
 # NOVO APP PARA CONTATO E ESTRUTURAR A MODEL 
 # DENTRO DELE.
 class Contato(models.Model):
-    nome = models.CharField(max_length=250)
-    email = models.EmailField(max_length=250)
+    nome = models.CharField(max_length=256)
+    email = models.EmailField(max_length=256)
     telefone = models.CharField(max_length=20)
     # - indica que é chave estrangeira de Pessoa;
     # - informa que caso a pessoa seja deleta do DB, os contatos vinculados a ela tambem serão removidas
